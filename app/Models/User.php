@@ -64,7 +64,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function Stan()
     {
-        return $this->belongsTo('App\Models\Stan');
+        return $this->hasOne('App\Models\Stan', 'id_user');
     }
 
     // public function stan()

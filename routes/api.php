@@ -27,7 +27,7 @@ Route::controller(authController::class)->group(function () {
     Route::post('/stan/login', 'loginStan');
     Route::put('/stan/update/{id}', 'updateStan');
     Route::delete('/stan/delete/{id}', 'deleteStan');
-    Route::get('/menus/stan/{id_stan}   ', [MenuController::class, 'getmenuStan']);
+    Route::get('/menus/stan', [MenuController::class, 'getmenuStan']);
 });
 
 Route::controller(MenuController::class)->group(function () {
