@@ -71,7 +71,7 @@ class MenuController extends Controller
         }
 
         // Prohibit updating menus that belong to other stans
-        if ($menu->id_stan !== $user->stan_id) {
+        if ($menu->id_stan !== $user->Stan->id) {
             return response()->json(['message' => 'Unauthorized to update this menu'], 403);
         }
 
