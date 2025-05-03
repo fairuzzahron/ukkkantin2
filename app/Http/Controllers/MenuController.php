@@ -105,7 +105,7 @@ class MenuController extends Controller
             return response()->json(['message' => 'Menu item not found'], 404);
         }
 
-        if ($menu->id_stan !== $user->stan_id) {
+        if ($menu->id_stan !== $user->Stan->id) {
             return response()->json(['message' => 'Unauthorized to delete this menu'], 403);
         }
 
