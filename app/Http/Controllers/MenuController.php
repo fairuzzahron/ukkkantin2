@@ -114,9 +114,10 @@ class MenuController extends Controller
         return response()->json(['message' => 'Menu deleted successfully'], 200);
     }
 
-    public function getmenuStan($id_stan)
+    public function getmenuStan()
     {
-        $menus = Menu::where('id_stan', $id_stan)->get();
+        $user = Auth::user();
+        $menus = Menu::where('id_stan', $user->Stan->id_stan)->get();
 
         if ($menus->isEmpty()) {
             return response()->json(['message' => 'No menus found for this stan'], 404);
