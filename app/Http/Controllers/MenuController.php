@@ -12,6 +12,7 @@ class MenuController extends Controller
     public function createMenu(Request $request)
     {
         $user = Auth::user();
+        $stan = $user->Stan;
         // dd($user);
 
         if ($user->role !== 'admin_stan') {
@@ -26,7 +27,6 @@ class MenuController extends Controller
             'deskripsi' => 'required',
         ]);
 
-        $stan = Stan::where('id_user', Auth::id())->first();
 
         if (!$stan) {
             return response()->json(['message' => 'Stan not found for this user'], 404);
@@ -39,7 +39,7 @@ class MenuController extends Controller
             'jenis' => $request->jenis,
             'foto' => $request->foto,
             'deskripsi' => $request->deskripsi,
-            'id_stan' => $stan->id,
+            'id_stan' => $user->Stan->id,
         ]);
 
 
